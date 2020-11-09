@@ -1,10 +1,24 @@
 def intersection(arrays):
-    """
-    YOUR CODE HERE
-    """
     # Your code here
+    #dictionary to hold all values in all arrays
+    intersection_junction = {}
+    #empty array to hold results
+    results = []
+    #using the number of arrays to check if we have the right number of elements
+    number_of_arrays = len(arrays)
 
-    return result
+    #load intersection junction with values in array and count each occurance
+    for array in arrays:
+        for i in array:
+            if i not in intersection_junction:
+                intersection_junction[i] = 1
+            else:
+                intersection_junction[i] += 1
+        for i in intersection_junction:
+            #add all values that have appeared in all arrays to results list
+            if intersection_junction[i] == number_of_arrays:
+                results.append(i)
+    return results
 
 
 if __name__ == "__main__":
